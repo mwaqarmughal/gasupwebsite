@@ -18,7 +18,7 @@ function App() {
 
   return(
     <div className="App">
-      <ul>{product.map((p,index)=><li key="index">{p}</li>)}</ul>
+      <li>{product[1]}</li>
     </div>
   );
 }

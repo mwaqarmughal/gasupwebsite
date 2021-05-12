@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 router.get("/api", function (req,res){
-  res.send(['lso','dd'])
+  res.send(['lso','ddd'])
 })
 
 module.exports = router;

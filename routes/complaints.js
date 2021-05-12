@@ -1,31 +1,26 @@
 const express = require('express')
 const router = express.Router();
-const User = require('../models/User')
-
-
+const Complaints = require('../models/Complaints')
 
 //GET
 router.get("/", async (req, res) => {
   try {
-    const users = await User.find();
-    res.send(users)
+    const complaints = await Complaints.find();
+    res.send(complaints)
   } catch (error) {
     res.json({message: error})
   };
 });
 
-
-
 //POST
 router.post('/', async (req,res)=>{
-  const users = new User({
-    username: req.body.username,
+  const complaints = new Complaints({
     email: req.body.email,
-    password: req.body.password
+    complaints: req.body.complaints,
   });
 try {
-   const savedUser = await users.save();
-  res.json(savedUser);
+   const savedComplaints = await complaints.save();
+  res.json(savedComplaints);
 } catch (error) {
   res.json({message: error})
 }

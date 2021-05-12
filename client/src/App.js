@@ -3,22 +3,23 @@ import axios from 'axios'
 import './App.css';
 
 function App() {
-  const [product, setProduct]= useState([])
+  const [product, setProduct]= useState([]);
   useEffect(() => {
-    axios.get('/api')
-    .then(
+    axios.get('/api').then(
       (res)=>{
         setProduct(res.data)
       }
-    )
-    .catch((err)=>{
+    ).catch(err=>{
       console.log(err)
     })
-    })
-
-  return(
+  })
+  return (
     <div className="App">
-      <li>{product[1]}</li>
+    <ul>
+      {product.map((p,index)=><li key={index}>
+        {p}
+      </li>)}
+    </ul>      
     </div>
   );
 }
